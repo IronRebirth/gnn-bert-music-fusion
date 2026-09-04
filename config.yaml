@@ -1,0 +1,120 @@
+# GNN-Based BERT for Understanding Context from Music — Configuration
+
+# --- Experiment ---
+experiment:
+  seed: 42
+  name: "gnn_bert_music"
+  description: "GNN-BERT fusion for music context understanding"
+
+# --- Dataset ---
+dataset:
+  name: "fma_small"
+  # Paths are relative to project root; override via CLI or Kaggle notebook
+  raw_audio_dir: "data/raw/fma_small"
+  metadata_dir: "data/raw/fma_metadata"
+  processed_dir: "data/processed"
+  splits_dir: "data/splits"
+  sample_rate: 22050
+  segment_length_s: 5        # seconds per audio segment
+  n_mels: 128                # mel spectrogram bins
+  n_fft: 2048
+  hop_length: 512
+  n_chroma: 12
+  num_genres: 8              # FMA-small has 8 top-level genres
+  max_segments_per_track: 6  # cap segments to limit graph size
+
+# --- Graph Construction ---
+graph:
+  similarity_threshold: 0.7   # cosine similarity for edge creation
+  temporal_edge_weight: 1.0
+  include_chroma_features: true
+
+# --- BERT ---
+bert:
+  model_name: "distilbert-base-uncased"
+  max_length: 128
+  freeze_mode: "partial"     # "frozen", "partial", "full"
+  freeze_layers: 4           # freeze first N transformer layers (partial mode)
+  dropout: 0.3               # classifier-head dropout for the Task 1 BERT baseline
+
+# --- GNN ---
+gnn:
+  type: "sage"               # "sage" or "gat"
+  hidden_channels: 128
+  num_layers: 3
+  dropout: 0.3
+  heads: 4                   # only used for GAT
+
+# --- CNN Baseline ---
+cnn:
+  channels: [32, 64, 128]
+  kernel_size: 3
+  dropout: 0.3
+
+# --- Improved CNN ---
+improved_cnn:
+  channels: [64, 128, 256]
+  kernel_size: 3
+  dropout: 0.4
+  activation: "gelu"          # "relu" or "gelu"
+  use_residual: true
+  use_dual_pool: true         # avg + max pooling
+  head_hidden: 256
+  multi_segment: true         # use all segments, not just first
+  segment_pool: "mean"        # "mean", "max", or "attention"
+
+# --- Audio Augmentation (training only) ---
+augmentation:
+  enabled: true
+  time_mask_param: 20         # SpecAugment time mask max width
+  freq_mask_param: 10         # SpecAugment freq mask max width
+  num_time_masks: 2
+  num_freq_masks: 2
+  random_segment: true        # randomly sample segment during training
+
+# --- CNN-BERT Fusion ---
+cnn_bert_fusion:
+  fusion_type: "gated"        # "gated", "concat", "cross_attention"
+  cnn_embed_dim: 256          # CNN output embedding dim
+  latent_dim: 256
+  dropout: 0.3
+  bert_lr: 0.00002            # separate LR for BERT layers
+  new_lr: 0.0003              # separate LR for new layers
+
+# --- Fusion ---
+fusion:
+  type: "cross_attention"    # "cross_attention" or "early"
+  latent_dim: 256
+  num_heads: 8
+  dropout: 0.3
+
+# --- Contrastive (Task 4) ---
+contrastive:
+  projection_dim: 256
+  temperature: 0.07
+
+# --- Training ---
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  epochs: 50
+  patience: 7                # early stopping
+  num_workers: 4
+  pin_memory: true
+  use_amp: true              # automatic mixed precision (CUDA only)
+  gradient_accumulation_steps: 1
+  scheduler: "cosine"        # "cosine" or "step"
+  warmup_epochs: 3
+
+# --- Evaluation ---
+evaluation:
+  default_threshold: 0.5
+  tune_threshold: true       # tune on validation set
+  threshold_search_steps: 50
+
+# --- Paths ---
+paths:
+  checkpoints: "checkpoints"
+  results: "results"
+  plots: "results/plots"

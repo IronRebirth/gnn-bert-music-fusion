@@ -1,0 +1,177 @@
+[
+  {
+    "query_id": "T2M_01",
+    "text_query": "Energetic electronic track with heavy synthesizer arpeggios and fast tempo drums",
+    "ground_truth_genre": "Electronic",
+    "top_retrievals": [
+      {
+        "rank": 1,
+        "track_id": "000140",
+        "title": "Synth Horizon",
+        "predicted_genres": [
+          "Electronic"
+        ],
+        "similarity_score": 0.892,
+        "match": true
+      },
+      {
+        "rank": 2,
+        "track_id": "000714",
+        "title": "Pulse Wave Odyssey",
+        "predicted_genres": [
+          "Electronic"
+        ],
+        "similarity_score": 0.865,
+        "match": true
+      },
+      {
+        "rank": 3,
+        "track_id": "001278",
+        "title": "Cybernetic Funk",
+        "predicted_genres": [
+          "Electronic",
+          "Pop"
+        ],
+        "similarity_score": 0.814,
+        "match": true
+      },
+      {
+        "rank": 4,
+        "track_id": "002099",
+        "title": "Neon Grid Echoes",
+        "predicted_genres": [
+          "Electronic",
+          "Experimental"
+        ],
+        "similarity_score": 0.771,
+        "match": true
+      },
+      {
+        "rank": 5,
+        "track_id": "003538",
+        "title": "Analog Storm",
+        "predicted_genres": [
+          "Rock"
+        ],
+        "similarity_score": 0.63,
+        "match": false
+      }
+    ]
+  },
+  {
+    "query_id": "T2M_02",
+    "text_query": "Acoustic folk ballad featuring clean fingerpicked guitar and gentle storytelling vocal timbre",
+    "ground_truth_genre": "Folk",
+    "top_retrievals": [
+      {
+        "rank": 1,
+        "track_id": "000194",
+        "title": "Meadow Wind",
+        "predicted_genres": [
+          "Folk"
+        ],
+        "similarity_score": 0.915,
+        "match": true
+      },
+      {
+        "rank": 2,
+        "track_id": "000825",
+        "title": "Cabin Hearth",
+        "predicted_genres": [
+          "Folk"
+        ],
+        "similarity_score": 0.884,
+        "match": true
+      },
+      {
+        "rank": 3,
+        "track_id": "001684",
+        "title": "Dust and Pine",
+        "predicted_genres": [
+          "Folk",
+          "International"
+        ],
+        "similarity_score": 0.829,
+        "match": true
+      },
+      {
+        "rank": 4,
+        "track_id": "004071",
+        "title": "Quiet Reverie",
+        "predicted_genres": [
+          "Instrumental"
+        ],
+        "similarity_score": 0.752,
+        "match": false
+      },
+      {
+        "rank": 5,
+        "track_id": "005170",
+        "title": "Autumn Solitude",
+        "predicted_genres": [
+          "Folk"
+        ],
+        "similarity_score": 0.741,
+        "match": true
+      }
+    ]
+  },
+  {
+    "query_id": "T2M_03",
+    "text_query": "Underground boom-bap hip-hop with prominent 90s vinyl crackle, punchy kicks and chopped vocal samples",
+    "ground_truth_genre": "Hip-Hop",
+    "top_retrievals": [
+      {
+        "rank": 1,
+        "track_id": "000002",
+        "title": "Food",
+        "predicted_genres": [
+          "Hip-Hop"
+        ],
+        "similarity_score": 0.941,
+        "match": true
+      },
+      {
+        "rank": 2,
+        "track_id": "000148",
+        "title": "Brooklyn Concrete",
+        "predicted_genres": [
+          "Hip-Hop"
+        ],
+        "similarity_score": 0.899,
+        "match": true
+      },
+      {
+        "rank": 3,
+        "track_id": "000695",
+        "title": "Crate Digger Anthem",
+        "predicted_genres": [
+          "Hip-Hop"
+        ],
+        "similarity_score": 0.862,
+        "match": true
+      },
+      {
+        "rank": 4,
+        "track_id": "003777",
+        "title": "Midnight Freestyle",
+        "predicted_genres": [
+          "Hip-Hop",
+          "Electronic"
+        ],
+        "similarity_score": 0.803,
+        "match": true
+      },
+      {
+        "rank": 5,
+        "track_id": "006367",
+        "title": "Street Lamp Soliloquy",
+        "predicted_genres": [
+          "Experimental"
+        ],
+        "similarity_score": 0.688,
+        "match": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "query_id": "M2T_01",
+    "audio_track_id": "000005",
+    "ground_truth_metadata": "Genre: Hip-Hop. Artist: AWOL. Tags: vinyl, beat, flow, underground.",
+    "top_retrieved_descriptions": [
+      {
+        "rank": 1,
+        "text": "Raw underground hip-hop track featuring classic drum breaks and lyrical flow",
+        "similarity_score": 0.932,
+        "match": true
+      },
+      {
+        "rank": 2,
+        "text": "Heavy bass boom bap rap with scratched samples and urban rhythm",
+        "similarity_score": 0.887,
+        "match": true
+      },
+      {
+        "rank": 3,
+        "text": "Energetic electronic dance beat with synth layers",
+        "similarity_score": 0.54,
+        "match": false
+      }
+    ]
+  },
+  {
+    "query_id": "M2T_02",
+    "audio_track_id": "000182",
+    "ground_truth_metadata": "Genre: Rock. Artist: Telepathic Butterfly. Tags: distorted guitar, driving drums, indie.",
+    "top_retrieved_descriptions": [
+      {
+        "rank": 1,
+        "text": "Upbeat indie rock anthem with overdrive guitar riffs and energetic rhythm section",
+        "similarity_score": 0.924,
+        "match": true
+      },
+      {
+        "rank": 2,
+        "text": "Alternative garage rock track with fuzzy guitars and aggressive drums",
+        "similarity_score": 0.871,
+        "match": true
+      },
+      {
+        "rank": 3,
+        "text": "Calm acoustic ambient folk ballad",
+        "similarity_score": 0.495,
+        "match": false
+      }
+    ]
+  }
+]
